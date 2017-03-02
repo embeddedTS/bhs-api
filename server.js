@@ -80,7 +80,7 @@ server.get('/temperatures', function(req, res, next) {
     function get_pool() {
 
         // We're done going through pools at this point, so return!
-        if (currentPool == numberOfPools) {
+        if (currentPool >= numberOfPools) {
             //console.log("allPools: ", allPools);
             res.json(allPools);
             next();
