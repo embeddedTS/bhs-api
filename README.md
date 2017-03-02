@@ -1,29 +1,24 @@
-# README #
+# Introduction #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This node.js application is designed to run from a Technologic Systems [TS-7680 SBC](https://www.embeddedarm.com/products/TS-7680) and serves a REST API for getting Bozeman Hot Springs outside pool temperature data collected from a Honeywell T775 Controller (2 - 10 VDC output).
 
-### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+![bozeman-hot-springs-ts-7680-honeywell_bb-1024.png](https://bitbucket.org/repo/eGL68B/images/925926239-bozeman-hot-springs-ts-7680-honeywell_bb-1024.png)
 
-### How do I get set up? ###
+## Installation Instructions ##
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+Designed to be run on a [TS-7680 SBC](https://www.embeddedarm.com/products/TS-7680).
 
-### Contribution guidelines ###
+* apt-get update && apt-get install nodejs npm git
+* git clone git@bitbucket.org:dhildreth/bozeman-hot-springs-pool-temperatures.git bhs-api
+* cd bhs-api
+* npm install
+* node server.js
 
-* Writing tests
-* Code review
-* Other guidelines
+Then, use curl or browse to http://localhost:8080/temperatures to get a list of all pool temperatures or http://localhost:8080/temperatures/:pool to get a specific pool matching id :pool.  
 
-### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+## Who do I talk to? ##
+
+* Derek Hildreth - eBusiness Manager - Technologic Systems
+* Andy Barham - Manager - Bozeman Hot Springs
