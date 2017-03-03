@@ -2,48 +2,48 @@
 <html>
 <head>
     <meta charset="utf-8">
-	<title>Example Usage of BHS-API</title>
-	<meta name="author" content="Derek Hildreth">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<style>
-	    div.pool-data {
-	    	display: inline-block;
-	    	border: 1px solid #eee;
-	    	width: 200px;
-	    	height: 100px;
-	    	padding: 5px;
-	    	background: #f6f6f6;
-	    	margin: 10px;
-	    	position: relative;
-	    }
+    <title>Example Usage of BHS-API</title>
+    <meta name="author" content="Derek Hildreth">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+        div.pool-data {
+            display: inline-block;
+            border: 1px solid #eee;
+            width: 200px;
+            height: 100px;
+            padding: 5px;
+            background: #f6f6f6;
+            margin: 10px;
+            position: relative;
+        }
 
-	    div.pool-data i.fa {
-    	    font-size: 24px;
-   			color: #333;
-		    position: relative;
-		    top: 35px;
-		    left: 80px;
-	    }
+        div.pool-data i.fa {
+            font-size: 24px;
+            color: #333;
+            position: relative;
+            top: 35px;
+            left: 80px;
+        }
 
-	    div.pool-data span {
-	    	display: block;
-	    	text-align: center;
-	    }
+        div.pool-data span {
+            display: block;
+            text-align: center;
+        }
 
-	    div.pool-data span.name {
-	    	font-size: 24px;
-	    	color: #333;
-	    }
+        div.pool-data span.name {
+            font-size: 24px;
+            color: #333;
+        }
 
-	    div.pool-data span.temperature {
-		    position: relative;
-		    top: 15px;
-		    font-size: 36px;
-		    font-weight: bold;
-		    color: #27457f;
-	    }
+        div.pool-data span.temperature {
+            position: relative;
+            top: 15px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #27457f;
+        }
 
-	</style>
+    </style>
 </head>
 <body>
     <h1>Bozeman Hot Springs Pool Tempertures Example Page</h1>
@@ -53,39 +53,39 @@
     <div class="pool-data" id="pool2"><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script>
-	$(function(){
+    <script>
+    $(function(){
         var apiEndpoint = "http://192.168.1.150:8080";
         var url = apiEndpoint + '/temperatures';
 
         $.getJSON( url, function( data ) {
           
           $.each( data, function( key, pool ) {
-          	var poolDiv = $('#pool' + pool.id);
+              var poolDiv = $('#pool' + pool.id);
             poolDiv.empty();
 
-          	$("<span/>", {
-          		"class": "name",
-          		html: "Pool Number " + pool.id
-          	}).appendTo(poolDiv);
+              $("<span/>", {
+                  "class": "name",
+                  html: "Pool Number " + pool.id
+              }).appendTo(poolDiv);
 
             if(!pool.error) {
-	          	$("<span/>", {
-	          		"class": "temperature",
-	          		html: Math.round(pool.temperature) + " &deg;" + pool.temperatureUnit
-	          	}).appendTo(poolDiv);
+                  $("<span/>", {
+                      "class": "temperature",
+                      html: Math.round(pool.temperature) + " &deg;" + pool.temperatureUnit
+                  }).appendTo(poolDiv);
             }
             else {
-            	$("<span/>", {
-            		"class": "temperature",
-            		html: "--"
-            	}).appendTo(poolDiv);
+                $("<span/>", {
+                    "class": "temperature",
+                    html: "--"
+                }).appendTo(poolDiv);
             }
 
           });
 
         });
-	});
-	</script>
+    });
+    </script>
 </body>
 </html>
