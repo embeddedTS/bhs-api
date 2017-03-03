@@ -74,9 +74,9 @@ server.pre(restify.pre.userAgentConnection());
 *******************************************************************************/
 server.get('/temperatures', function(req, res, next) {
 
-    numberOfPools = 3;
-    currentPool = 0;
-    allPools = [];
+    var numberOfPools = 3;
+    var currentPool = 0;
+    var allPools = [];
 
     function get_pool() {
 
