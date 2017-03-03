@@ -65,6 +65,7 @@ Pool.prototype.getJson = function() {
 };
 
 var server = restify.createServer();
+
 server.pre(restify.pre.userAgentConnection());
 
 /*******************************************************************************
@@ -82,6 +83,7 @@ server.get('/temperatures', function(req, res, next) {
         // We're done going through pools at this point, so return!
         if (currentPool >= numberOfPools) {
             //console.log("allPools: ", allPools);
+            res.setHeader("Access-Control-Allow-Origin", "*");
             res.json(allPools);
             next();
         }
@@ -108,6 +110,7 @@ server.get('/temperatures/:pool', function(req, res, next) {
     var pool = new Pool(req.params.pool);
 
     pool.init(function(response) {
+        res.setHeader("Access-Control-Allow-Origin", "*");
         res.json(response);
         next();
     });
