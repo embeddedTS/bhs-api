@@ -22,3 +22,8 @@ Then, use curl or browse to http://localhost:8080/temperatures to get a list of 
 
 * Derek Hildreth - eBusiness Manager - Technologic Systems
 * Andy Barham - Manager - Bozeman Hot Springs
+
+
+## Example Webpage ##
+
+![Screen Shot 2017-03-03 at 12.18.25 PM.png](https://bitbucket.org/repo/eGL68B/images/2555406468-Screen%20Shot%202017-03-03%20at%2012.18.25%20PM.png)
