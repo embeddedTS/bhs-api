@@ -9,6 +9,36 @@ There are two API endpoints:
 * GET /temperatures/:pool_id
     * Returns JSON object with :pool_id temperature data where :pool_id is between 0 and 2.
 
+Example response from GET /temperatures
+```
+#!json
+
+[
+   {
+      "id":0,
+      "vdcin":"5151",
+      "temperature":"73.4",
+      "temperatureUnit":"F",
+      "error":null
+   },
+   {
+      "id":1,
+      "vdcin":"4915",
+      "temperature":"64.9",
+      "temperatureUnit":"F",
+      "error":null
+   },
+   {
+      "id":2,
+      "vdcin":"5143",
+      "temperature":"73.1",
+      "temperatureUnit":"F",
+      "error":null
+   }
+]
+```
+
+
 The API has been implemented in two languages:  nodejs and Python.  We'll be using the nodejs version.  Python is included because 1.) it's supposed to be faster (not that I noticed) and 2.) for the fun of it.
 
 This diagram shows how the TS-7680 is connected to the three Honeywell T775M controllers.
