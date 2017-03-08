@@ -27,13 +27,21 @@ class Pool:
         # y = m * x + b       vdc = m * temp + b
         # x = (y - b) / m     temp = (vdc - b) / m
         #
-        # Assuming 2000 mV is -40 and 10000 mV is 248 (max temperature range of T775M):
-        # temp = (vdc - 3111.11111111) / 27.7777777778
-        # 6000 mV ~= 103.9 F
+        # Using Honeywell T755M Series 2000 Electronic Stand-Alone Controller
+        # connected to MOD2, using SENSOR1.  MOD2 setup like so:
+        #   - TYPE = 2 - 10 VDC 
+        #   - SETPOINT = 100
+        #   - THROTTLING RANGE = 40 (Range 80 F to 120 F) 
+        #   - INTEGRAL = 0
+        #
+        # x1, x2, y1, y2 = 80, 120, 10, 2 (yes, y-axis is decreasing)
+        #
+        # Assuming 2000 mV is 80 and 10000 mV is 120:
+        # temp = (vdc - 26) / -0.2
         ####
 
-        m = 27.778
-        b = 3111.111
+        m = -0.2
+        b = 26
         converted_temperature = (self.vdcin - b) / m
         self.temperature = round(converted_temperature, 1)
         self.temperatureUnit = "F"
