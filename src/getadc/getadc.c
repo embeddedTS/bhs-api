@@ -12,6 +12,47 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <string.h>
+
+void gpioExport(int gpio)
+{
+    int fd;
+    char buf[255];
+    fd = open("/sys/class/gpio/export", O_WRONLY);
+    sprintf(buf, "%d", gpio); 
+    write(fd, buf, strlen(buf));
+    close(fd);
+}
+
+void gpioDirection(int gpio, int direction) // 1 for output, 0 for input
+{
+    int fd;
+    char buf[255];
+    sprintf(buf, "/sys/class/gpio/gpio%d/direction", gpio);
+    fd = open(buf, O_WRONLY);
+
+    if (direction)
+    {
+        write(fd, "out", 3);
+    }
+    else
+    {
+        write(fd, "in", 2);
+    }
+    close(fd);
+}
+
+void gpioSet(int gpio, int value)
+{
+    int fd;
+    char buf[255];
+    sprintf(buf, "/sys/class/gpio/gpio%d/value", gpio);
+    fd = open(buf, O_WRONLY);
+    sprintf(buf, "%d", value);
+    write(fd, buf, 1);
+    close(fd);
+}
+
 
 int main(int argc, char **argv) {
     volatile unsigned int *mxlradcregs;
@@ -19,8 +60,15 @@ int main(int argc, char **argv) {
     volatile unsigned int *mxclkctrlregs;
     unsigned int i, x;
     unsigned long long chan[8] = {0,0,0,0,0,0,0,0};
-    //signed int bivolt;
     int devmem;
+    int activityLed = 58;
+
+    // Setup Activity LED
+    gpioExport(activityLed); 
+    gpioDirection(activityLed, 1);
+
+    // Turn on the activity LED 
+    gpioSet(activityLed, 0); // 1 = off, 0 = on
 
     devmem = open("/dev/mem", O_RDWR|O_SYNC);
     assert(devmem != -1);
@@ -90,6 +138,9 @@ int main(int argc, char **argv) {
     if (argc < 2) {
 	printf("%s returns the analog input voltage in mV\n", argv[0]);
         printf("   Usage: %s <ADC_PIN_NUMBER>\n", argv[0]);
+
+        // Turn off activity LED 
+        gpioSet(activityLed, 1); 
         return 1;
     }
 
@@ -97,6 +148,9 @@ int main(int argc, char **argv) {
 
     //printf("LRADC_ADC%d_val=%d\n", adcPin, (unsigned int)((((chan[adcPin]/10)*45177)*6235)/100000000));
     printf("%d", (unsigned int)((((chan[adcPin]/10)*45177)*6235)/100000000));
+
+    // Turn off activity LED 
+    gpioSet(activityLed, 1);
 
     return 0;
 }
