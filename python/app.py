@@ -34,14 +34,14 @@ class Pool:
         #   - THROTTLING RANGE = 40 (Range 80 F to 120 F) 
         #   - INTEGRAL = 0
         #
-        # x1, x2, y1, y2 = 80, 120, 10, 2 (yes, y-axis is decreasing)
+        # x1, x2, y1, y2 = 80, 120, 10000, 2000 (yes, y-axis is decreasing)
         #
         # Assuming 2000 mV is 80 and 10000 mV is 120:
-        # temp = (vdc - 26) / -0.2
+        # temp = (vdc - 26000) / -200
         ####
 
-        m = -0.2
-        b = 26
+        m = -200
+        b = 26000
         converted_temperature = (self.vdcin - b) / m
         self.temperature = round(converted_temperature, 1)
         self.temperatureUnit = "F"

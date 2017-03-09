@@ -54,14 +54,14 @@ Pool.prototype.setTemperature = function () {
     *   - THROTTLING RANGE = 40 (Range 80 F to 120 F) 
     *   - INTEGRAL = 0
     *
-    * x1, x2, y1, y2 = 80, 120, 10, 2 (yes, y-axis is decreasing)
+    * x1, x2, y1, y2 = 80, 120, 10000, 2000 (yes, y-axis is decreasing)
     *
     * Assuming 2000 mV is 80 and 10000 mV is 120:
     * temp = (vdc - 26) / -0.2
     ***/
 
-    var m = -0.2;
-    var b = 26;
+    var m = -200;
+    var b = 26000;
 
     var convertedTemperature = (_this.vdcin - b) / m;
     _this.temperature = convertedTemperature.toFixed(1);
