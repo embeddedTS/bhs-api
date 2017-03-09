@@ -9,9 +9,9 @@
 *
 *  To compile, simply run `sudo make`.  The included Makefile will compile, 
 *  install to /usr/local/bin/, and setup executable permissions so it can be run
-*  as a normal user without the need for 'sudo'.  Run `make clean` to uninstall.
+*  as a normal user without the need for sudo.  Run `make clean` to uninstall.
 *  
-/******************************************************************************* 
+*******************************************************************************/
 
 #include <assert.h>
 #include <fcntl.h>

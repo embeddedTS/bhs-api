@@ -8,11 +8,12 @@ all: main install
 
 main: $(SRCS)
 	$(CC) $(CFLAGS) $(SRCS)
+	chown root:root $(NAME)
+	chmod 4755 $(NAME)
 
 install:
 	cp $(NAME) $(INSTALL)$(NAME)
-	chown root:root $(INSTALL)$(NAME)
-	chmod 4755 $(INSTALL)$(NAME)
 
 clean:
 	/bin/rm -f $(NAME)
+	/bin/rm -f $(INSTALL)$(NAME)
