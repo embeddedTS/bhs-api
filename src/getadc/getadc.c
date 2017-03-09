@@ -1,8 +1,17 @@
-/* To compile mx28adcctl, use the appropriate cross compiler and run the
-* command:
+/******************************************************************************* 
+* getadc.c
+*    
+*  Based on mx28adcctl.c example code from Technologic Systems, getadc.c will
+*  read voltage values (mV) from a given ADC channel and flash the "Activity"
+*  LED.  Refer to the TS-7680 manual for more informtation.
 *
-*  gcc -fno-tree-cselim -Wall -O0 -mcpu=arm9 -o mx28adcctl mx28adcctl.c
-*/
+*  Example usage: ./getadc 0
+*
+*  To compile, simply run `sudo make`.  The included Makefile will compile, 
+*  install to /usr/local/bin/, and setup executable permissions so it can be run
+*  as a normal user without the need for 'sudo'.  Run `make clean` to uninstall.
+*  
+/******************************************************************************* 
 
 #include <assert.h>
 #include <fcntl.h>
@@ -146,7 +155,6 @@ int main(int argc, char **argv) {
 
     int adcPin = atoi(argv[1]);
 
-    //printf("LRADC_ADC%d_val=%d\n", adcPin, (unsigned int)((((chan[adcPin]/10)*45177)*6235)/100000000));
     printf("%d", (unsigned int)((((chan[adcPin]/10)*45177)*6235)/100000000));
 
     // Turn off activity LED 
