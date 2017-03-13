@@ -47,6 +47,7 @@ This diagram shows how the TS-7680 is connected to the three Honeywell T775M con
 
 **Note:**  *The code behind expects the Honeywell controllers to be setup using MOD2 set to use SENSOR1 with parameters `TYPE=2-10VDC`, `SETPOINT=100`, `THROTTLING_RANGE=40`, `INTEGRAL=0` so that at 80F, the Vout will be 10 VDC and at 120F, Vout will be 2 VDC.*
 
+**Note:**  *The TS-7680 was connected as such: Pool A (Pump 1) = AN0, Pool B (Pump 2) = AN1, Pool C (Pump 3) = AN2.*
 
 ## Bozeman Hot Springs API Installation Instructions ##
 
