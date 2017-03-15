@@ -43,7 +43,7 @@ The API has been implemented in two languages:  nodejs and Python.  We'll be usi
 
 This diagram shows how the TS-7680 is connected to the three Honeywell T775M controllers.
 
-![bozeman-hot-springs-ts-7680-honeywell_bb.png](https://bitbucket.org/repo/eGL68B/images/505766528-bozeman-hot-springs-ts-7680-honeywell_bb.png)
+![bozeman-hot-springs-ts-7680-honeywell-2_bb-1024.png](https://bitbucket.org/repo/eGL68B/images/713005390-bozeman-hot-springs-ts-7680-honeywell-2_bb-1024.png)
 
 **Note:**  *The code behind expects the Honeywell controllers to be setup using MOD2 set to use SENSOR1 with parameters `TYPE=2-10VDC`, `SETPOINT=100`, `THROTTLING_RANGE=40`, `INTEGRAL=0` so that at 80F, the Vout will be 10 VDC and at 120F, Vout will be 2 VDC.*
 
