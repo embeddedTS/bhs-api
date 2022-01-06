@@ -1,7 +1,7 @@
 /******************************************************************************* 
 * getadc.c
 *    
-*  Based on mx28adcctl.c example code from Technologic Systems, getadc.c will
+*  Based on mx28adcctl.c example code from embeddedTS, getadc.c will
 *  read voltage values (mV) from a given ADC channel and flash the "Activity"
 *  LED.  Refer to the TS-7680 manual for more informtation.
 *

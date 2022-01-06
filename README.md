@@ -1,6 +1,6 @@
 # Introduction #
 
-This node.js application is designed to run from a Technologic Systems [TS-7680 SBC](https://www.embeddedarm.com/products/TS-7680) and serves a REST API for getting Bozeman Hot Springs outside pool temperature data collected from a Honeywell T775M Controller (2 - 10 VDC output) using Honeywell 50021579-001 thermoresistive sensors.
+This node.js application is designed to run from a embeddedTS [TS-7680 SBC](https://www.embeddedTS.com/products/TS-7680) and serves a REST API for getting Bozeman Hot Springs outside pool temperature data collected from a Honeywell T775M Controller (2 - 10 VDC output) using Honeywell 50021579-001 thermoresistive sensors.
 
 There are two API endpoints:
 
@@ -144,5 +144,5 @@ Also included in this repository is an example webpage which consumes the API an
 
 ## Who do I talk to? ##
 
-* Derek Hildreth - eBusiness Manager - Technologic Systems
+* Derek Hildreth - eBusiness Manager - embeddedTS
 * Andy Barham - Manager - Bozeman Hot Springs
